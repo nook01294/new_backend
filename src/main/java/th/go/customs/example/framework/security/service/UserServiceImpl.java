@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserDetailsService {
 
 	public UserInfo getUserInfo(String username) {
 		String sql = "SELECT u.user_name username, u.password password from fw_users u   WHERE  "
-				+ " u.is_delete = 'N'  and  u.user_name = '" + username + "' ";
+				+ " u.user_name = '" + username + "' ";
 		System.out.println(" Login SQL:" + sql);
 		UserInfo userInfo = (UserInfo) jdbcTemplate.queryForObject(sql, new RowMapper<UserInfo>() {
 			public UserInfo mapRow(ResultSet rs, int rowNum) throws SQLException {

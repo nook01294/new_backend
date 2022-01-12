@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -24,6 +25,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import th.go.customs.example.app.model.FwUserModel;
+import th.go.customs.example.app.repo.jpa.FwUserRepo;
+import th.go.customs.example.app.service.RoleService;
+import th.go.customs.example.app.vo.res.GetRoleRes;
 import th.go.customs.example.framework.security.model.AuthToken;
 import th.go.customs.example.framework.security.model.UserInfo;
 import io.jsonwebtoken.Claims;
@@ -35,10 +40,15 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class TokenProvider implements Serializable {
 
-	
-	
 	@Autowired
 	private JdbcTemplate  jdbcTemplate;
+	
+	@Autowired
+	private FwUserRepo fwUserRepo;
+	
+	@Autowired
+	private RoleService roleService;
+	
 	
     public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
@@ -99,27 +109,34 @@ public class TokenProvider implements Serializable {
         
         returnToken.setToken(tokenStr);
         returnToken.setUsername(authentication.getName());
-        returnToken.setAuthorities(authorities);
-        returnToken.setOrganizeCode(userInfo.getOrganizeCode());
-        returnToken.setOrganizeDesc(userInfo.getOrganizeDesc());
-        returnToken.setFullName(userInfo.getFullName());
-        returnToken.setVendor(userInfo.getVendoe());
+        returnToken.setFirstName(userInfo.getFirstName());
+        returnToken.setLastName(userInfo.getLastName());
+        returnToken.setDateOfBirth(userInfo.getDateOfBirth());
+        returnToken.setMobile(userInfo.getMobile());
+        returnToken.setEmail(userInfo.getEmail());
+        
+        FwUserModel user = fwUserRepo.findByUsername(authentication.getName());
+        GetRoleRes role = roleService.getRoleByRoleCode(user.getRoleCode());
+        returnToken.setRole(role);
+        		
         return returnToken;
     }
 
  
     public UserInfo getUserInfo(String username){
-    	String sql = "SELECT u.airport_code airport_code, u.vendor_code vendor_code, u.airport_des airport_des ,u.name name, u.surname surname from fw_users u   WHERE "+
-    			     " u.is_delete = 'N' AND u.user_name = '"+username+"' ";
+    	String sql = "SELECT * from fw_users u   WHERE u.user_name = '"+username+"' ";
     	//System.out.println("   SQL get Organize:"+sql);
     	UserInfo userInfo = (UserInfo)jdbcTemplate.queryForObject(sql,
     		new RowMapper<UserInfo>() {
 	            public UserInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
 	                UserInfo user = new UserInfo();
-	                user.setOrganizeCode(rs.getString("airport_code"));
-	                user.setOrganizeDesc(rs.getString("airport_des"));
-	                user.setFullName(rs.getString("name")+" "+rs.getString("surname"));
-	                user.setVendoe(rs.getString("vendor_code"));
+	                user.setUsername(rs.getString("user_name"));
+	                user.setPassword(rs.getString("password"));
+	                user.setFirstName(rs.getString("first_name"));
+	                user.setLastName(rs.getString("last_name"));
+	                user.setDateOfBirth(rs.getDate("date_of_birth"));
+	                user.setMobile(rs.getString("mobile"));
+	                user.setEmail(rs.getString("email"));
 	                return user;
 	            }
         });
@@ -143,8 +160,8 @@ public class TokenProvider implements Serializable {
 
         final Collection<? extends GrantedAuthority> authorities =
                 Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
-                        .map(SimpleGrantedAuthority::new)
-                        .collect(Collectors.toList());
+                .map(SimpleGrantedAuthority::new)
+                .collect(Collectors.toList());
 
         return new UsernamePasswordAuthenticationToken(userDetails, "", authorities);
     }

@@ -1,10 +1,11 @@
-package th.go.customs.example.framework.security.model;
+package th.go.customs.example.app.vo.req;
+
 import java.util.Date;
+
 import lombok.Data;
 
-
 @Data
-public class UserInfo {
+public class FwUserReq {
 	
 	private String username;
 	private String password;
@@ -14,6 +15,5 @@ public class UserInfo {
 	private Date dateOfBirth;
 	private String mobile;
 	private String email;
-	
 
 }

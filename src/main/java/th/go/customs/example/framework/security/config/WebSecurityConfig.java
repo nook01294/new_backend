@@ -66,7 +66,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 			, "/api/common/downloadRicFile/**"
                 			, "/api/ruleMaster/get-all"
                 			, "/api/channelMaster/get"
-                			, "/api/channelMapping/get-all-Rule-Channel").permitAll()
+                			, "/api/test/get-show").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
