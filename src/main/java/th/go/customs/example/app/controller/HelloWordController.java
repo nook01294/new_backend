@@ -2,6 +2,8 @@ package th.go.customs.example.app.controller;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +23,17 @@ public class HelloWordController {
 	@Autowired
 	private HelloWordService helloWordService;
 	
+	
+	private static final Logger LOGGER = LogManager.getLogger(HelloWordController.class);
+	
 	@GetMapping("/get-show")
 	@ResponseBody
 	public ResponseData<String> getAll() {
 		ResponseData<String> response = new ResponseData<String>();
 		try {
+//			LOGGER.info("Info level log message");
+//			LOGGER.debug("Debug level log message");
+//			LOGGER.error("Error level log message");
 			response.setData(helloWordService.showText());
 			response.setMessage(RESPONSE_MESSAGE.SUCCESS);
 			response.setStatus(RESPONSE_STATUS.SUCCESS);
