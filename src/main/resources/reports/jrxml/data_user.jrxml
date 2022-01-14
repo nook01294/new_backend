@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="data_user" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cdeaa4a3-7ba9-4082-924e-ae9da3f6a77d">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="username" class="java.lang.String"/>
+	<field name="firstName" class="java.lang.String"/>
+	<field name="lastName" class="java.lang.String"/>
+	<field name="dateOfBirth" class="java.sql.Timestamp"/>
+	<field name="mobile" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="roleCode" class="java.lang.String"/>
+	<field name="userId" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="200" y="10" width="383" height="50" uuid="393c01d5-ed60-4bc6-8db8-c8217ef65185"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="19"/>
+				</textElement>
+				<textFieldExpression><![CDATA["All User In Backend Example"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="121" y="21" width="110" height="39" backcolor="#E7F3FC" uuid="9cb19155-6948-4be2-8535-7391c8f0b1dd"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["first name"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="690" y="21" width="110" height="39" backcolor="#E7F3FC" uuid="569298b9-483f-4d8d-97fe-3bd27a0ecbf1"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["role code"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="570" y="21" width="120" height="39" backcolor="#E7F3FC" uuid="7b11291b-6be6-4f28-9ce4-556acdcdc275"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["email"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="469" y="21" width="101" height="39" backcolor="#E7F3FC" uuid="bbc97b57-325b-45d9-8fe2-9988c12ec505"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["mobile"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="41" y="21" width="80" height="39" backcolor="#E7F3FC" uuid="4f9d7d2b-d9cc-4f66-b8fb-3af305d39242"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["username"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="350" y="21" width="120" height="39" backcolor="#E7F3FC" uuid="e994c4b9-30d7-4a78-acb6-b8fc18e6e7d8"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["date of birth"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="231" y="21" width="119" height="39" backcolor="#E7F3FC" uuid="ef1697d2-a19c-4d4b-b927-a238cf93d72e"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["last name"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="10" y="21" width="30" height="39" backcolor="#E7F3FC" uuid="75fa6f27-8681-4ea2-ae1b-af8e1ff9f1e7"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["id"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="570" y="-1" width="120" height="23" uuid="0bbb1d1a-0854-4b14-8dc1-0cb0c3035b45"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="15" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="-1" width="80" height="23" uuid="16712eba-94dd-4a53-b599-40da2803599c"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="15" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{username}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="-1" width="119" height="23" uuid="a96752aa-4f99-4121-892e-6667bfa23e4e"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="15" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dateOfBirth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="690" y="-1" width="110" height="23" uuid="4ec45b61-9ff9-4803-a15b-6ac32fced58d"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="15" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{roleCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="-1" width="100" height="23" uuid="c6be0a96-44a8-4ff3-9d5d-b8eae086f5f6"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="15" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mobile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="-1" width="110" height="23" uuid="71c606ef-0273-4b0c-b465-c2051023af03"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="15" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="231" y="-1" width="119" height="23" uuid="9d8ab704-2917-43e2-95e8-d1e01e97d4b0"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="15" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="-1" width="30" height="23" uuid="9ed502f1-fdc1-4fbc-bae3-ca0e75f8f900"/>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="15" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{userId}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
