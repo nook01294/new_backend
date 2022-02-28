@@ -67,6 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 			, "/api/ruleMaster/get-all"
                 			, "/api/channelMaster/get"
                 			, "/api/test/get-show"
+                			, "/api/user/register-user"
                 			).permitAll()
                 .anyRequest().authenticated()
                 .and()

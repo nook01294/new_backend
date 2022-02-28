@@ -12,8 +12,9 @@ public class FwUserReq {
 	private String role;
 	private String firstName;
 	private String lastName;
+	private String name;
 	private Date dateOfBirth;
-	private String mobile;
+	private String phone;
 	private String email;
 
 }
